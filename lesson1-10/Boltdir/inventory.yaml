@@ -3,15 +3,31 @@
 groups:
   - name: linux
     nodes:
-    - node1
-    - node2
-    - node3
+    - name: "127.0.0.1:32768"
+      alias: node1
+      config:
+        ssh:
+          user: root
+          run-as: root
+    - name: "127.0.0.1:32769"
+      alias: node2
+      config:
+        ssh:
+          user: root
+          run-as: root
+    - name: "127.0.0.1:32770"
+      alias: node3
+      config:
+        ssh:
+          user: root
+          run-as: root    
   - name: windows
     nodes:
     - winrm://localhost:55985
 config:
   ssh:
     host-key-check: false
+    password: root
   winrm:
     user: vagrant
     password: vagrant
